@@ -1,10 +1,3 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
 ## Description
 
 The objective is to create a voucher pool in NestJs. You can use whichever libraries you prefer. The service should expose a ​REST API​.
@@ -24,7 +17,12 @@ This project was written with NestJs using **TDD** with Jest lib.
 * [x] A nice little Readme on how to run
 * [x] ***PLUS POINT:*** Writing swagger for the API
 * [x] ***PLUS POINT:*** Docker file to setup the whole application with all the dependencies (database, nodejs)
-* 
+
+---
+
+## ERD
+![Voucher ERD](./voucher-ERD.jpeg)
+
 ---
 
 ## Installation
