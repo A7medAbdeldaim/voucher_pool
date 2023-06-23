@@ -1,0 +1,56 @@
+// This is your PrismaService schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+
+  vouchers VoucherData[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("customers")
+}
+
+model Offer {
+  id       Int    @id @default(autoincrement())
+  name     String
+  discount Float
+
+  vouchers VoucherData[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("offers")
+}
+
+model VoucherData {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  customer_id Int
+  customer    Customer @relation(fields: [customer_id], references: [id])
+
+  offer_id Int
+  offer    Offer @relation(fields: [offer_id], references: [id])
+
+  used_at       DateTime?
+  expiration_at DateTime
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("voucher_data")
+}
